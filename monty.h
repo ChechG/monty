@@ -40,3 +40,4 @@ void *fpop(stack_t **stack, unsigned int number);
 void *fswap(stack_t **stack, unsigned int number);
 void *fadd(stack_t **stack, unsigned int number);
 void *fadd(stack_t **stack, unsigned int number);
+#endif
