@@ -19,9 +19,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 	while (options[i].opcode != NULL)
 	{
 		if (strcmp(options[i].opcode, token) == 0)
-		{
 			options[i].f(head, line_n);
-		}
 		i++;
 	}
 	return (0);
@@ -56,8 +54,6 @@ void f_push(stack_t **stack, unsigned int line_number)
 void f_pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	if ((*stack) == NULL)
-		exit(EXIT_FAILURE);
 	while ((*stack) != NULL)
 	{
 		printf("%d\n", (*stack)->n);
