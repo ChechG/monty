@@ -37,12 +37,17 @@ int main(int argc, char *argv[])
 			continue;
 		token2 = strtok(NULL, " \n\t");
 		if (token2 != NULL)
-			number = atoi(token2);
-			if (number == 0 && *token2 != 48)
+		{
+			if(check_number(token2) == 1)
 			{
+				free(line);
+				free(token2);
+				free_doubly(head);
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
 				exit(EXIT_FAILURE);
 			}
+			number = atoi(token2);
+		}
 		search_opcode(token, line_n, &head);
 	}
 	free(line);

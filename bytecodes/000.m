@@ -1,5 +1,10 @@
 push 0
 push 1
-push r
+push 2
   push 3
                    pall    
+push 0
+push r
+push 2
+  push 3
+                   pall   
