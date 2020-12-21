@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 	{
 		token = strtok(line, " \n\t\r");
 		line_n++;
+		if (token == NULL)
+			continue;
 		token2 = strtok(NULL, " \n\t\r");
 		if (token2 != NULL)
 			number = atoi(token2);
