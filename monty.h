@@ -3,6 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <fcntl.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,11 +38,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void *fpush(stack_t **stack, unsigned int number);
-void *fpall(stack_t **stack, unsigned int number);
-void *fpint(stack_t **stack, unsigned int number);
-void *fpop(stack_t **stack, unsigned int number);
-void *fswap(stack_t **stack, unsigned int number);
-void *fadd(stack_t **stack, unsigned int number);
-void *fadd(stack_t **stack, unsigned int number);
+int search_function(char *, unsigned int, stack_t **stack);
+int search_opcode(char *token, unsigned int line_n, stack_t *head);
+void f_push(stack_t **stack, unsigned int line_number);
+void f_pall(stack_t **stack, unsigned int line_number);
+void check_token(char *token, unsigned int line_n);
+void f_pint(stack_t **stack, unsigned int line_number);
+void f_pop(stack_t **stack, unsigned int line_number);
+void f_nop(stack_t **stack, unsigned int line_number);
+void f_swap(stack_t **stack, unsigned int line_number);
+size_t list_len(stack_t **h);
+void f_add(stack_t **stack, unsigned int line_number);
+void f_sub(stack_t **stack, unsigned int line_number);
+void f_mul(stack_t **stack, unsigned int line_number);
+void f_div(stack_t **stack, unsigned int line_number);
+void f_mod(stack_t **stack, unsigned int line_number);
+void f_pchar(stack_t **stack, unsigned int line_number);
+void f_pstr(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *head);
 #endif

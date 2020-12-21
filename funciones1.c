@@ -1,5 +1,5 @@
 #include "monty.h"
-void *fpush(stack_t **stack, unsigned int number)
+/*void *fpush(stack_t **stack, unsigned int number)
 {
     (void)stack;
     (void)number;
@@ -34,3 +34,4 @@ void *fswap(stack_t **stack, unsigned int number)
 
     printf("Entro a funcion de swap\n");
 }
+*/
