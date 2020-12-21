@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * main - point of entry.
+ * @argc: number of argument.
+ * @argv: arguments.
+ * Return: 0.
+ */
 int main(int argc, char *argv[])
 {
 	FILE *stream;
@@ -26,12 +31,6 @@ int main(int argc, char *argv[])
 		token = strtok(line, " \n\t\r");
 		line_n++;
 		search_opcode(token, line_n, &head);
-		/*while(token != NULL)
-		{
-			printf("El token es:%s\n",token);
-			token = strtok(NULL, " ");
-		}*/
-
 	}
 	free(line);
 	fclose(stream);

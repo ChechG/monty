@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * search_opcode - searches for opcode function.
+ * @token: supposed opcode name.
+ * @line_n: number of line.
+ * @head: struct for opcodes.
+ * Return: 0.
+ */
 int search_opcode(char *token, unsigned int line_n, stack_t **head)
 {
 	instruction_t options[] = {
@@ -9,7 +15,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 	};
 	int i = 0;
 
-	while(options[i].opcode != NULL)
+	while (options[i].opcode != NULL)
 	{
 		if (strcmp(options[i].opcode, token) == 0)
 		{
@@ -19,11 +25,16 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 	}
 	return (0);
 }
-
+/**
+ * f_push - pushes an int n to stack.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
 void f_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	
+
 	(void)line_number;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -35,6 +46,12 @@ void f_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new;
 	*stack = new;
 }
+/**
+ * f_pall - prints all int n of stack.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
 void f_pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
