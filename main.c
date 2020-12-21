@@ -1,4 +1,6 @@
 #include "monty.h"
+
+int number = 0;
 /**
  * main - point of entry.
  * @argc: number of argument.
@@ -13,6 +15,7 @@ int main(int argc, char *argv[])
 	ssize_t nread;
 	unsigned int line_n = 0;
 	char *token = NULL;
+    char *token2;
 	stack_t *head = NULL;
 
 	if (argc != 2)
@@ -30,6 +33,9 @@ int main(int argc, char *argv[])
 	{
 		token = strtok(line, " \n\t\r");
 		line_n++;
+        token2 = strtok(NULL, " \n\t\r");
+        if (token2 != NULL)
+            number = atoi(token2);
 		search_opcode(token, line_n, &head);
 	}
 	free(line);
