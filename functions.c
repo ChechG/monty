@@ -6,7 +6,7 @@
  * @head: struct for opcodes.
  * Return: 0.
  */
-int search_opcode(char *token, unsigned int line_n, stack_t **head)
+void search_opcode(char *token, unsigned int line_n, stack_t **head)
 {
 	instruction_t options[] = {
 		{"pall", f_pall},
@@ -22,7 +22,6 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 			options[i].f(head, line_n);
 		i++;
 	}
-	return (0);
 }
 /**
  * f_push - pushes an int n to stack.
@@ -53,11 +52,13 @@ void f_push(stack_t **stack, unsigned int line_number)
  */
 void f_pall(stack_t **stack, unsigned int line_number)
 {
+	stack_t *new = (*stack);
+	
 	(void)line_number;
-	while ((*stack) != NULL)
+	while (new != NULL)
 	{
-		printf("%d\n", (*stack)->n);
-		(*stack) = (*stack)->next;
+		printf("%d\n", new->n);
+		new = new->next;
 	}
 }
 /**

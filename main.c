@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t nread;
 	unsigned int line_n = 0;
-	char *token = NULL;
+	char *token;
 	char *token2;
 	stack_t *head = NULL;
 
@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
 	}
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
-		token = strtok(line, " \n\t\r");
+		token = strtok(line, " \n\t");
 		line_n++;
 		if (token == NULL)
 			continue;
-		token2 = strtok(NULL, " \n\t\r");
+		token2 = strtok(NULL, " \n\t");
 		if (token2 != NULL)
 			number = atoi(token2);
 		search_opcode(token, line_n, &head);
