@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		search_opcode(token, line_n, &head);
 	}
 	free(line);
-	free(head);
+	free_doubly(head);
 	fclose(stream);
 	exit(EXIT_SUCCESS);
 }
