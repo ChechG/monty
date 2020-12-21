@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	ssize_t nread;
 	unsigned int line_n = 0;
 	char *token = NULL;
-	stack_t **head = NULL;
+	stack_t *head = NULL;
 
 	if (argc != 2)
 	{

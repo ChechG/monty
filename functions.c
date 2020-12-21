@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int search_opcode(char *token, unsigned int line_n, stack_t *head)
+int search_opcode(char *token, unsigned int line_n, stack_t **head)
 {
 	instruction_t options[] = {
 		{"pall", f_pall},
@@ -11,10 +11,8 @@ int search_opcode(char *token, unsigned int line_n, stack_t *head)
 
 	while(options[i].opcode != NULL)
 	{
-		printf("opcode y token: %s y %s\n",options[i].opcode, token);
 		if (strcmp(options[i].opcode, token) == 0)
 		{
-			printf("encontro coincidencia en :%s y %s\n",options[i].opcode, token);
 			options[i].f(head, line_n);
 		}
 		i++;
@@ -36,11 +34,18 @@ void f_push(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL)
 		(*stack)->prev = new;
 	*stack = new;
-	printf("es un push\n");
 }
 void f_pall(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
 	(void)line_number;
-	printf("es un pall\n");
+	if ((*stack) == NULL)
+	{
+		exit(EXIT_SUCCESS);
+	}
+	while ((*stack) != NULL)
+	{
+		printf("%d\n", (*stack)->n);
+		(*stack) = (*stack)->next;
+	}
+	exit(EXIT_SUCCESS);
 }

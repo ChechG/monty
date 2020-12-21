@@ -39,7 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int search_function(char *, unsigned int, stack_t **stack);
-int search_opcode(char *token, unsigned int line_n, stack_t *head);
+int search_opcode(char *token, unsigned int line_n, stack_t **head);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
 void check_token(char *token, unsigned int line_n);
