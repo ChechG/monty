@@ -29,9 +29,9 @@ void f_push(stack_t **stack, unsigned int line_number)
 	if (new == NULL)
 		exit(EXIT_FAILURE);
 	new->n = line_number;
-	new->next = *stack;
+	new->next = (*stack);
 	new->prev = NULL;
-	if (*stack != NULL)
+	if ((*stack) != NULL)
 		(*stack)->prev = new;
 	*stack = new;
 }
@@ -40,12 +40,11 @@ void f_pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if ((*stack) == NULL)
 	{
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 	while ((*stack) != NULL)
 	{
 		printf("%d\n", (*stack)->n);
 		(*stack) = (*stack)->next;
 	}
-	exit(EXIT_SUCCESS);
 }
