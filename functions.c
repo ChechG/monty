@@ -11,6 +11,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 	instruction_t options[] = {
 		{"pall", f_pall},
 		{"push", f_push},
+		{"pint", f_pint},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -63,3 +64,17 @@ void f_pall(stack_t **stack, unsigned int line_number)
 		(*stack) = (*stack)->next;
 	}
 }
+/**
+ * f_pint - prints all int n of stack.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
+ void f_pint(stack_t **stack, unsigned int line_number)
+ {
+	(void)line_number;
+	if ((*stack) == NULL)
+		exit(EXIT_FAILURE);
+	if ((*stack) != NULL)
+		printf("%d\n", (*stack)->n);
+ }
