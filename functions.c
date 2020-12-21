@@ -36,14 +36,14 @@ void f_push(stack_t **stack, unsigned int line_number)
 	stack_t *new;
 
 	(void)line_number;
+	if ((*stack) != NULL)
+		(*stack)->prev = new;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 		exit(EXIT_FAILURE);
 	new->n = line_number;
 	new->next = (*stack);
 	new->prev = NULL;
-	if ((*stack) != NULL)
-		(*stack)->prev = new;
 	*stack = new;
 }
 /**
