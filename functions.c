@@ -16,14 +16,11 @@ void search_opcode(char *token, unsigned int line_n, stack_t **head)
 	};
 	int i = 0;
 
-	while (options[i].opcode != NULL)
+	while (options[i].opcode)
 	{
 		if (strcmp(options[i].opcode, token) == 0)
-			options[i].f(head, line_n);
-		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
-			exit(EXIT_FAILURE);
+			options[i].f(head, line_n);
 		}
 		i++;
 	}
