@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		token2 = strtok(NULL, " \n\t");
 		if (token2 != NULL)
 			number = atoi(token2);
-			if (number == 0 && token2 != 0)
+			if (number == 0 && *token2 != 48)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
 				exit(EXIT_FAILURE);
