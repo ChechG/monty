@@ -15,6 +15,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
+		("nop", f_nop),
 		{NULL, NULL}
 	};
 	int i = 0;

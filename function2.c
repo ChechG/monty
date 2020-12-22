@@ -44,3 +44,14 @@ void f_add(stack_t **stack, unsigned int line_number)
     tmp1->n += (*stack)->n;
     f_pop(stack, line_number);
 }
+/**
+ * f_nop - does absolutely nothing.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
+void f_nop(stack_t **stack, unsigned int line_number)
+{
+    (void)stack;
+    (void)line_number;
+}
