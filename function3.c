@@ -55,13 +55,13 @@ void f_pchar(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = (*stack);
 
-	if (stack == NULL)
+	if ((*stack) == NULL)
 	{
         fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		free_doubly(*stack);
 		exit(EXIT_FAILURE);
 	}
-	while (new->next != NULL)
+	while (new != NULL)
 	{
         if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
         {
