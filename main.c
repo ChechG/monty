@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 	FILE *stream;
 	size_t len = 0;
 	unsigned int line_n = 0;
-	char *line = NULL;
+	char *line = NULL, *token, *token2;
+	ssize_t nread;
 	stack_t *head = NULL;
 
 	if (argc != 2)
@@ -25,7 +26,32 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	get_line(len, line_n, line, head, stream);
+	while ((nread = getline(&line, &len, stream)) != -1)
+	{
+		token = strtok(line, " \n\t");
+		line_n++;
+		if (token == NULL)
+			continue;
+		token2 = strtok(NULL, " \n\t");
+		if (token2 != NULL)
+		{
+			if (check_number(token2) == 1)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_n);
+				free(line);
+				free_doubly(head);
+				exit(EXIT_FAILURE);
+			}
+			number = atoi(token2);
+		}
+		if (search_opcode(token, line_n, &head) == 1)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+			free(token);
+			free_doubly(head);
+			exit(EXIT_FAILURE);
+		}
+	}
 	free(line);
 	free_doubly(head);
 	fclose(stream);

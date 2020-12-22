@@ -5,10 +5,10 @@
  * @line_n: arguments.
  * @head: stack;
  * @stream: open file.
- * Return: void.
+ * Return: 0.
  */
 int number = 0;
-void get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s)
+int get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s)
 {
 	ssize_t nread;
 	char *token, *token2;
@@ -39,4 +39,5 @@ void get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s)
 			exit(EXIT_FAILURE);
 		}
 	}
+	return (0);
 }
