@@ -98,6 +98,6 @@ void f_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
     }
     tmp1 = (*stack)->next;
-    (*stack)->n /= tmp1->n;
+    tmp1->n /= (*stack)->n;
     f_pop(stack, line_number);
 }
