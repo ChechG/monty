@@ -61,7 +61,7 @@ void f_pchar(stack_t **stack, unsigned int line_number)
 		free_doubly(*stack);
 		exit(EXIT_FAILURE);
 	}
-	while (new != NULL)
+	while (new->next != NULL)
 	{
         if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
         {
