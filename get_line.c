@@ -13,10 +13,10 @@ void get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s)
 	ssize_t nread;
 	char *token, *token2;
 
-	while ((nread = getline(&line, &len, stream)) != -1)
+	while ((nread = getline(&l, &ln, s)) != -1)
 	{
-		token = strtok(line, " \n\t");
-		line_n++;
+		token = strtok(l, " \n\t");
+		l_n++;
 		if (token == NULL)
 			continue;
 		token2 = strtok(NULL, " \n\t");
@@ -24,18 +24,18 @@ void get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s)
 		{
 			if (check_number(token2) == 1)
 			{
-				fprintf(stderr, "L%d: usage: push integer\n", line_n);
-				free(line);
-				free_doubly(head);
+				fprintf(stderr, "L%d: usage: push integer\n", l_n);
+				free(l);
+				free_doubly(h);
 				exit(EXIT_FAILURE);
 			}
 			number = atoi(token2);
 		}
-		if (search_opcode(token, line_n, &head) == 1)
+		if (search_opcode(token, l_n, &h) == 1)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+			fprintf(stderr, "L%d: unknown instruction %s\n", l_n, token);
 			free(token);
-			free_doubly(head);
+			free_doubly(h);
 			exit(EXIT_FAILURE);
 		}
 	}
