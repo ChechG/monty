@@ -76,7 +76,7 @@ void f_sub(stack_t **stack, unsigned int line_number)
     f_pop(stack, line_number);
 }
 /**
- * f_div - substracts the first 2 elem of the stack.
+ * f_div - divides the first 2 elem of the stack.
  * @stack: struct_t stack.
  * @line_number: number of line.
  * Return: void.
