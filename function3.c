@@ -89,9 +89,7 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) == NULL)
 	{
-        fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
-		free_doubly(*stack);
-		exit(EXIT_FAILURE);
+        putchar(10);
 	}
 	while (new != NULL)
 	{
