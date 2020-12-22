@@ -21,6 +21,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 		{"mul", f_mul},
 		{"mod", f_mod},
 		{"pchar", f_pchar},
+		{"pstr", f_pstr},
 		{NULL, NULL}
 	};
 	int i = 0;

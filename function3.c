@@ -77,3 +77,34 @@ void f_pchar(stack_t **stack, unsigned int line_number)
         }
 	}
 }
+/**
+ * f_pstr - converts num to ascii value without newline.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
+void f_pstr(stack_t **stack, unsigned int line_number)
+{
+    stack_t *new = (*stack);
+
+	if ((*stack) == NULL)
+	{
+        fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		free_doubly(*stack);
+		exit(EXIT_FAILURE);
+	}
+	while (new != NULL)
+	{
+        if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
+        {
+            putchar(new->n);
+            new = new->next;
+        }
+        else
+        {
+            free_doubly(*stack);
+            break;
+        }
+	}
+    putchar(10);
+}

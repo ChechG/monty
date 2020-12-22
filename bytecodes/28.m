@@ -1,2 +1,3 @@
-push 72
+push 98
+pop
 pchar
