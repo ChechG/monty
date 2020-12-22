@@ -56,6 +56,7 @@ void f_sub(stack_t **stack, unsigned int line_number);
 void f_mul(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void f_mod(stack_t **stack, unsigned int line_number);
+void f_pchar(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
 void free_doubly(stack_t *head);
 #endif
