@@ -1,6 +1,6 @@
      push 1
 pint
-            push -2
+            push e
 pint
             push 3
 pint

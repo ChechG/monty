@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	FILE *stream;
 	size_t len = 0;
 	unsigned int line_n = 0;
-	char *line = NULL, *token, *token2;
+	char *line = NULL, *token = NULL, *token2 = NULL;
 	ssize_t nread;
 	stack_t *head = NULL;
 
@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
 			if (check_number(token2) == 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
+				free(line);
 				free_doubly(head);
 				exit(EXIT_FAILURE);
 			}
