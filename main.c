@@ -41,10 +41,13 @@ int main(int argc, char *argv[])
 			free_doubly(head);
 			exit(EXIT_FAILURE);
 		}
-		if (strcmp(token, "pall") == 0 && token2 != NULL)
-			f_pall(&head, line_n);
 		if (token2 != NULL)
 		{
+			if (strcmp(token, "pall") == 0)
+			{
+				f_pall(&head, line_n);
+				continue;
+			}
 			if (check_number(token2) == 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
