@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
 			if (check_number(token2) == 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
-				free(line);
 				free_doubly(head);
 				exit(EXIT_FAILURE);
 			}
