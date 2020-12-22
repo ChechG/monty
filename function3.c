@@ -87,10 +87,9 @@ void f_pstr(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = (*stack);
 
+    (void)line_number;
 	if ((*stack) == NULL)
-	{
         putchar(10);
-	}
 	while (new != NULL)
 	{
         if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
