@@ -1,6 +1,5 @@
 #include "monty.h"
 
-int number = 0;
 /**
  * main - point of entry.
  * @argc: number of argument.
@@ -10,51 +9,23 @@ int number = 0;
 int main(int argc, char *argv[])
 {
 	FILE *stream;
-	char *line = NULL;
 	size_t len = 0;
-	ssize_t nread;
 	unsigned int line_n = 0;
-	char *token;
-	char *token2;
+	char *line = NULL;
 	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "Usage: %s file\n", argv[0]);
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-	    exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-	while ((nread = getline(&line, &len, stream)) != -1)
-	{
-		token = strtok(line, " \n\t");
-		line_n++;
-		if (token == NULL)
-			continue;
-		token2 = strtok(NULL, " \n\t");
-		if (token2 != NULL)
-		{
-			if(check_number(token2) == 1)
-			{
-				free(line);
-				free_doubly(head);
-				fprintf(stderr, "L%d: usage: push integer\n", line_n);
-				exit(EXIT_FAILURE);
-			}
-			number = atoi(token2);
-		}
-		if (search_opcode(token, line_n, &head) == 1)
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
-			free(token);
-			free_doubly(head);
-			exit(EXIT_FAILURE);
-		}
-	}
+	get_line(len, line_n, line, head, stream);
 	free(line);
 	free_doubly(head);
 	fclose(stream);

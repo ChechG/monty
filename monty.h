@@ -43,6 +43,7 @@ typedef struct instruction_s
 
 int search_opcode(char *token, unsigned int line_n, stack_t **head);
 int check_number(char *token2);
+void get_line(size_t ln, unsigned int l_n, char *l, stack_t *h, FILE *s);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
 void check_token(char *token, unsigned int line_n);
