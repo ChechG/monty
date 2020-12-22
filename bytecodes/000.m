@@ -1,10 +1,10 @@
 push 0
 push 1
 push 2
-  push 3
+  push 
                    pall    
 push 0
-r
+
 push 2
   push 3
                    pall   
