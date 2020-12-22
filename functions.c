@@ -12,6 +12,7 @@ int search_opcode(char *token, unsigned int line_n, stack_t **head)
 		{"pall", f_pall},
 		{"push", f_push},
 		{"pint", f_pint},
+		{"pop", f_pop},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -92,3 +93,22 @@ void f_pint(stack_t **stack, unsigned int line_number)
 	if ((*stack) != NULL)
 		printf("%d\n", (*stack)->n);
 }
+
+/**
+ * f_pop - deletes first element of stack.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
+ void f_pop(stack_t **stack, unsigned int line_number)
+ {
+	stack_t *nodo = (*stack);
+
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack) = (*stack)->next;
+	free(nodo);
+ }
