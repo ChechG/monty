@@ -13,9 +13,7 @@ int check_number(char *token)
 		if (token[i] == '-')
 			continue;
 		if (token[i] < 48 || token[i] > 57)
-		{
 			return (1);
-		}
 	}
 	return (0);
 }
