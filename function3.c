@@ -26,3 +26,22 @@ void f_mul(stack_t **stack, unsigned int line_number)
  * Return: void.
  */
 void f_mod(stack_t **stack, unsigned int line_number)
+{
+    stack_t *tmp1;
+
+    if (stackt_len(*stack) < 2)
+    {
+        fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_doubly(*stack);
+		exit(EXIT_FAILURE);
+    }
+    if ((*stack)->n == 0)
+    {
+        fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_doubly(*stack);
+		exit(EXIT_FAILURE);
+    }
+    tmp1 = (*stack)->next;
+    tmp1->n %= (*stack)->n;
+    f_pop(stack, line_number);
+}
