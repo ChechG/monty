@@ -21,9 +21,12 @@ void search_opcode(char *token, unsigned int line_n, stack_t **head)
 		if (strcmp(options[i].opcode, token) == 0)
 		{
 			options[i].f(head, line_n);
+			return;
 		}
 		i++;
 	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+	exit(EXIT_FAILURE);
 }
 /**
  * f_push - pushes an int n to stack.
