@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
 		}
 		if (token2 != NULL)
 		{
-			if (strcmp(token, "pall") == 0)
+			if (strcmp(token, "push") != 0)
 			{
-				f_pall(&head, line_n);
+				search_opcode(token, line_n, &head);
 				continue;
 			}
 			if (check_number(token2) == 1)
