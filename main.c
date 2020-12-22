@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 		line_n++;
 		if (token == NULL)
 			continue;
+		if (token[0] == '#')
+			continue;
 		token2 = strtok(NULL, " \n\t");
 		if (strcmp(token, "push") == 0 && token2 == NULL)
 		{
@@ -41,7 +43,6 @@ int main(int argc, char *argv[])
 		}
 		if (token2 != NULL)
 		{
-			
 			if (check_number(token2) == 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
