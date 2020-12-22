@@ -92,16 +92,15 @@ void f_pstr(stack_t **stack, unsigned int line_number)
         putchar(10);
 	while (new != NULL)
 	{
+        if (new->n == 0)
+            break;
         if ((new->n >= 65 && new->n <= 90) || (new->n >= 97 && new->n <= 122))
         {
             putchar(new->n);
             new = new->next;
         }
         else
-        {
-            free_doubly(*stack);
             break;
-        }
 	}
     putchar(10);
 }
