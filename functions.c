@@ -80,7 +80,10 @@ void f_pint(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
 		exit(EXIT_FAILURE);
+	}
 	if ((*stack) != NULL)
 		printf("%d\n", (*stack)->n);
 }
