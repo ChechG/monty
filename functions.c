@@ -6,7 +6,7 @@
  * @head: struct for opcodes.
  * Return: 0.
  */
-void search_opcode(char *token, unsigned int line_n, stack_t **head)
+int search_opcode(char *token, unsigned int line_n, stack_t **head)
 {
 	instruction_t options[] = {
 		{"pall", f_pall},
@@ -21,12 +21,11 @@ void search_opcode(char *token, unsigned int line_n, stack_t **head)
 		if (strcmp(options[i].opcode, token) == 0)
 		{
 			options[i].f(head, line_n);
-			return;
+			return (0);
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
-	exit(EXIT_FAILURE);
+	return (1);
 }
 /**
  * f_push - pushes an int n to stack.

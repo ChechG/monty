@@ -47,7 +47,13 @@ int main(int argc, char *argv[])
 			}
 			number = atoi(token2);
 		}
-		search_opcode(token, line_n, &head);
+		if (search_opcode(token, line_n, &head) == 1)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+			free(token);
+			free_doubly(head);
+			exit(EXIT_FAILURE);
+		}
 	}
 	free(line);
 	free_doubly(head);

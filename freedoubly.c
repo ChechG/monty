@@ -6,13 +6,13 @@
  */
 void free_doubly(stack_t *head)
 {
-	stack_t *current = head;
+	stack_t *current;
 
-	while (current != NULL)
+	while (head != NULL)
 	{
-		head = current->next;
-		free(current);
 		current = head;
+		head = head->next;
+		free(current);
 	}
-	head = NULL;
+	free(head);
 }
