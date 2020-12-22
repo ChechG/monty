@@ -25,7 +25,7 @@ void f_swap(stack_t **stack, unsigned int line_number)
     (*stack) = tmp2;
 }
 /**
- * f_add - swaps first to num of stack.
+ * f_add - adds the first 2 elem of the stack.
  * @stack: struct_t stack.
  * @line_number: number of line.
  * Return: void.
