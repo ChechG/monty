@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * f_mul - substracts the first 2 elem of the stack.
+ * f_mul - multiplies the first 2 elem of the stack.
  * @stack: struct_t stack.
  * @line_number: number of line.
  * Return: void.
@@ -19,3 +19,10 @@ void f_mul(stack_t **stack, unsigned int line_number)
     tmp1->n *= (*stack)->n;
     f_pop(stack, line_number);
 }
+/**
+ * f_mod - calculats and save the module of 1st 2 elem of stack.
+ * @stack: struct_t stack.
+ * @line_number: number of line.
+ * Return: void.
+ */
+void f_mod(stack_t **stack, unsigned int line_number)
